@@ -118,7 +118,7 @@
     			isinitVal:true, //显示时间
     			festival:false,  //显示节日
     	        minDate:"2000-01-01",              //最小日期
-    	        maxDate:"2020-12-31",              //最大日期
+    	        maxDate:"2099-12-31",              //最大日期
     	        method:{
     	            choose:function (params) {
     	                
