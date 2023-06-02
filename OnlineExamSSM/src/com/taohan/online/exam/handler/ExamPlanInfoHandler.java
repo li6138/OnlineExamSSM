@@ -146,7 +146,7 @@ public class ExamPlanInfoHandler {
 	/**
 	 * 查询学生待考信息
 	 * @param classId 学生所在班级编号
-	 * @param gradeId 学生所在年级百年好
+	 * @param gradeId 学生所在年级编号
 	 * @param studentId 学生编号
 	 * @return
 	 */
@@ -178,21 +178,21 @@ public class ExamPlanInfoHandler {
 	@Scheduled(cron="0 */15 * * * MON-FRI")
 	public void refreshExamPlan() {
 		List<ExamPlanInfo> examPlans = examPlanInfoService.getExamPlans(null);
-		logger.info("刷新待考记录, SIZE "+examPlans.size());
+		System.out.println("refresh records, SIZE "+examPlans.size());
 		if (examPlans.size() > 0) {
 			for (ExamPlanInfo examPlanInfo : examPlans) {
 				String beginTime = examPlanInfo.getBeginTime();
 				int examPaperTime = examPlanInfo.getExamPaper().getExamPaperTime();
 				/** 验证是否可移除 */
 				if (validateExamPaerBeOverdue(beginTime, examPaperTime)) {
-					logger.info("待考试卷 "+examPlanInfo.getExamPaper().getExamPaperId()+" 已经过期，即将移除");
+					System.out.println("to test paper "+examPlanInfo.getExamPaper().getExamPaperId()+" 已经过期，即将移除");
 					//移除过期考试安排
 					int row = examPlanInfoService.isRemoveExamPlan(examPlanInfo.getExamPlanId());
 				} else {
-					logger.info("待考试卷 "+examPlanInfo.getExamPaper().getExamPaperId()+" 暂未过期，无法移除");
+					System.out.println("to test paper "+examPlanInfo.getExamPaper().getExamPaperId()+" 暂未过期，无法移除");
 					continue;
 				}
-			} 
+			}
 		}
 	}
 	

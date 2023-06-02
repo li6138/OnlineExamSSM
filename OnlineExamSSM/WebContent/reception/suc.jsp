@@ -15,9 +15,9 @@
  	<link href="${path }/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<%-- <div style="width:100%;height:100%;text-align: center;">
+	<div style="width:100%;height:100%;text-align: center;">
 		<h2>${success }</h2>
-	</div> --%>
+	</div>
 
 	<!-- js引入 -->
     <%-- <script src="${path }/js/jquery.js"></script>
@@ -25,7 +25,8 @@
     <script src="${path }/js/login.js"></script> --%>
     
     <script>
-		window.top.location.href = 'index.jsp';
+
+		window.setTimeout("window.top.location='index.jsp'",1000);
 	</script>
 </body>
 

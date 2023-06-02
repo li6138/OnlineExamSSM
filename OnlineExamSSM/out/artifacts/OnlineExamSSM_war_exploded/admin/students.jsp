@@ -24,13 +24,14 @@
 					<th>学生编号</th>
 					<th>学生姓名</th>
 					<th>学生账户</th>
-					<th>登录密码</th>
+					<c:if test="${sessionScope.adminPower == 1 }">
+						<th>登录密码</th>
+					</c:if>
 					<th>就读班级</th>
 					<th>就读年级</th>
-					<%-- <c:if test="${sessionScope.adminPower == 1 }">
+					<c:if test="${sessionScope.adminPower == 1 }">
 						<th>操作</th>
-					</c:if> --%>
-					<th>操作</th>
+					</c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,19 +42,23 @@
 								<td>${student.studentId }</td>
 								<td>${student.studentName }</td>
 								<td>${student.studentAccount }</td>
-								<td>
-									<span id="hidePwd">******</span>
-									<span id="showPwd" style="display: none">${student.studentPwd }</span>
-									<button type="button" class="btn btn-info btn-xs viewPwd">查看</button>
-								</td>
+								<c:if test="${sessionScope.adminPower == 1 }">
+									<td>
+										<span id="hidePwd">******</span>
+										<span id="showPwd" style="display: none">${student.studentPwd }</span>
+										<button type="button" class="btn btn-info btn-xs viewPwd">查看</button>
+									</td>
+								</c:if>
 								<td>${student.classInfo.className }</td>
 								<td>${student.grade.gradeName }</td>
-								<td>
-									<div class="btn-group">
-										<button type="button" class="btn btn-info btn-sm" onclick="_iframe(1, 'student/${student.studentId }', 'students')">修改</button>
-										<button type="button" class="btn btn-danger btn-sm" onclick="del('student/${student.studentId }')">删除</button>
-									</div>
-								</td>
+								<c:if test="${sessionScope.adminPower == 1 }">
+									<td>
+										<div class="btn-group">
+											<button type="button" class="btn btn-info btn-sm" onclick="_iframe(1, 'student/${student.studentId }', 'students')">修改</button>
+											<button type="button" class="btn btn-danger btn-sm" onclick="del('student/${student.studentId }')">删除</button>
+										</div>
+									</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</c:when>

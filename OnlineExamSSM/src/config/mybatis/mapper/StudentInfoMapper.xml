@@ -71,7 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="isAddStudent" parameterType="com.taohan.online.exam.po.StudentInfo">
-		INSERT INTO studentInfo(studentId,studentName,studentAccount,studentPwd,classId) VALUESNULL, #{studentName}, #{studentAccount}, #{studentPwd}, #{classInfo.classId})
+		INSERT INTO studentInfo(studentId,studentName,studentAccount,studentPwd,classId) VALUES(NULL, #{studentName}, #{studentAccount}, #{studentPwd}, #{classInfo.classId})
 	</insert>
 	
 	<select id="getStudentTotal" resultType="int">

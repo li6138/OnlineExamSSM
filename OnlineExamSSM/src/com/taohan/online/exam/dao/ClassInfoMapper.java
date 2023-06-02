@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.taohan.online.exam.po.ClassInfo;
 
 /**
-  *班级信息代理接口
+  *班级信息接口
   */
 
 @Repository

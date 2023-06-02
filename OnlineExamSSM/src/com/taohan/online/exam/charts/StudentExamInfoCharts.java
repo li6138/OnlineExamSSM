@@ -17,9 +17,7 @@ import com.github.abel533.echarts.series.Line;
 import com.taohan.online.exam.po.StudentExamInfo;
 
 /**
-  *
-  * <p>Title: StudentExamInfoCharts</p>
-  * <p>Description: 学生考试信息 图表 Json 数据 生成</p>
+  *学生考试信息 图表 Json 数据 生成
   */
 
 public class StudentExamInfoCharts {
@@ -82,6 +80,7 @@ public class StudentExamInfoCharts {
 		valueAxis.axisLabel().formatter("{value} 次");
 		
 		ValueAxis valueAxis1 = new ValueAxis();
+		//设置y轴不出现小数值
 		valueAxis1.interval(1);
 		valueAxis1.axisLabel().formatter("{value} 分");
 		option.yAxis(valueAxis, valueAxis1);

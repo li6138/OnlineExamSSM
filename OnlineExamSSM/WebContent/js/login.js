@@ -205,7 +205,8 @@ $(function() {
 			url: "studentReg",
 			data: "name="+studentName+"&account="+studentAccount+"&pwd="+studentPwd+"&classId="+classId,
 			success: function(data) {
-				alert(data);
+				console.log(data);
+				console.log(data.data);
 				if (data.trim() == "t") {
 					zeroModal.show({
 						title: "提示",
@@ -221,7 +222,7 @@ $(function() {
 						}
 					});
 					setTimeout(function(){
-						window.location.href = 'reception/login.jsp';
+						window.top.location.href = 'index.jsp';
 					},1000);
 				} else {
 					alert("注册失败");
